@@ -4,7 +4,7 @@
 
 cd /xampp/htdocs/
 
-git clone ... folder
+git clone https://github.com/UP-G/authandcrudLavarel9 folder
 
 cd folder
 
