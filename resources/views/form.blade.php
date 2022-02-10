@@ -18,17 +18,26 @@
         <div class="row">
             <div class="row mt-3">
             <div class="col">
-                <input name="name" value="{{isset($user) ? $user->name : null}}" type="text" class="form-control" placeholder="Имя" aria-label="Name">
+                <input name="name" value="{{old('name', isset($user) ? $user->name : null)}}" type="text" class="form-control" placeholder="Имя" aria-label="Name">
+                @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             </div>
             <div class="row mt-3">
             <div class="col">
-                <input name="email" value="{{isset($user) ? $user->email : null}}" type="text" class="form-control" placeholder="Email" aria-label="Email">
+                <input name="email" value="{{old('email', isset($user) ? $user->email : null)}}" type="text" class="form-control" placeholder="Email" aria-label="Email">
+                @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             </div>
             <div class="row mt-3">
                 <div class="col">
-                    <input name="phone" value="{{isset($user) ? $user->phone : null}}" type="text" class="form-control" placeholder="+79201139598" aria-label="Номер телефона">
+                    <input name="phone" value="{{old('phone', isset($user) ? $user->phone : null)}}" type="text" class="form-control" placeholder="+79201139598" aria-label="Номер телефона">
+                    @error('phone')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="row mt-4">
