@@ -38,7 +38,7 @@ class UsersController extends Controller
     public function store(UserRequest $request)
     {
         User::create($request->only(['name','email','phone']));
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->withSuccess('Создана заявка '.$request->name);
     }
 
     /**
@@ -85,6 +85,6 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->withSuccess('Удалена заявка '.$user->name);
     }
 }
