@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Заявка'.$user->name)
+@section('title', 'Заявка '.$user->name)
 
 @section('content')
     <a class="btn btn-success" href="{{route('users.index')}}">Список</a>
@@ -15,4 +15,9 @@
         </ul>
     </div>
     <a type="button" class="btn btn-dark mt-3" href="{{route('users.edit', $user)}}">Изменить</a>
+    <form method="POST" action="{{route('users.destroy', $user)}}">
+        @csrf
+        @method('DELETE')
+        <button name="" class="btn btn-warning mt-1" type="submit">Удалить</button>
+    </form>
 @endsection
