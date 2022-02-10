@@ -1,5 +1,10 @@
 @extends('layout')
-
+@guest()
+    @if (Route::has('login'))
+    <h1>Для админа</h1>
+        <a href="/" class="btn btn-danger">Выход</a>
+    @endif
+    @else
 @section('title', 'Заявка '.$user->name)
 
 @section('content')
@@ -21,3 +26,6 @@
         <button name="" class="btn btn-warning mt-1" type="submit">Удалить</button>
     </form>
 @endsection
+@endguest
+
+

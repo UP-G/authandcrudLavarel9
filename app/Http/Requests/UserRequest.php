@@ -27,7 +27,7 @@ class UserRequest extends FormRequest
         $rules = [
             'name' => 'required|min:2|max:64',
             'email' => ['required','min:6','max:132','email',],
-            'phone' => ['required','min:6','max:14'],
+            'phone' => ['required','min:6','max:14', 'unique:users'],
         ];
 
         if(!empty($this->user))
