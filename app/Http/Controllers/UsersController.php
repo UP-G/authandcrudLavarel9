@@ -70,7 +70,7 @@ class UsersController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UserRequest $request, User $user)
+    public function update(UserRequest $request, User $user): \Illuminate\Http\RedirectResponse
     {
         $user->update($request->only(['name','email','phone']));
         return redirect()->route('users.index');

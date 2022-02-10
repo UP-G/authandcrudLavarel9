@@ -27,16 +27,18 @@ class UserRequest extends FormRequest
         $rules = [
             'name' => 'required|min:2|max:64',
             'email' => ['required','min:6','max:132','email',],
-            'phone' => ['required','min:6','max:14', 'unique:users'],
+            'phone' => ['required','min:6','max:14'],
         ];
 
         if(!empty($this->user))
         {
             $rules['email'][] = Rule::unique('users')->ignore($this->user->id);
+            $rules['phone'][] = Rule::unique('users')->ignore($this->user->id);
         }
         else
         {
             $rules['email'][] = Rule::unique('users');
+            $rules['phone'][] = Rule::unique('users');
         }
 
         return $rules;
