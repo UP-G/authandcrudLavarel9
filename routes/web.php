@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'users');
 Route::resource('users', UsersController::class);
+Route::redirect('home', '/');
 
 Auth::routes();
 
